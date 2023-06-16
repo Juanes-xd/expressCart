@@ -7,7 +7,7 @@
     "start": "node app.js",
     "deploy": "node deploy.js",
     "testdata": "node lib/testdata.js",
-    "test": "ava",
+    "test": "cypress open",
     "dev": " pm2-dev start app.js",
     "lint": "eslint ./"
   },
@@ -79,6 +79,7 @@
   "devDependencies": {
     "ava": "^3.13.0",
     "clean-css": "^4.2.3",
+    "cypress": "^12.14.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-extra-rules": "0.0.0-development",

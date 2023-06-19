@@ -1,12 +1,28 @@
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+  });
 
 describe("newUser", ()=> {
-    it("ueser created", ()=> {
-        cy.visit("http://localhost:1111/admin/user/new")
-        cy.get('#usersName').type("carlos")
-        cy.get('#userEmail').type("carlos@correo")
-        cy.get('#userPassword').type(("123"))
-        cy.get('#userNewForm > :nth-child(4) > .form-control').type("123")
-        cy.get('#btnUserAdd').click()
+
+
+    
+    beforeEach("get newUser", ()=> {
+        cy.visit("http://localhost:1111/admin")
+        cy.get('#email').type('rzagza039@gmail.com')
+        cy.get('#password').type('**039##')
+        cy.get('#loginForm').click()
+        cy.get(':nth-child(7) > .nav-link').click()
+        cy.get('.float-right > .btn').click() 
+        
+    })
+
+    it('test id pq1', ()=> {
+
+        cy.get('#usersName')
+        cy.get('#userEmail')
+        cy.get('#userPassword')
+        cy.get('#userNewForm > :nth-child(4) > .form-control')
+        cy.get('#btnUserAdd')
 
     })
 })

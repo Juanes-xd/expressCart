@@ -13,10 +13,60 @@ describe("createOrder", ()=> {
         
     })
 
-    it('test id Title', ()=> {
-
-        cy.get(':nth-child(4) > .sidebar-link-addon',{force: true}).type('carlos')
-           
+    it('FN', ()=> {
+  
+        cy.get('#orderFirstName').type("samir")
+        cy.get('#orderLastName').type("ramos")  
     })
+
+    it('FN', ()=> {
+  
+        cy.get('#orderFirstName').type("123")
+        cy.get('#orderLastName').type("ramos") 
+        cy.get('#orderFirstName').should('not.have.value','123') 
+    })
+
+    it('FN', ()=> {
+  
+        cy.get('#orderFirstName').type("#@$")
+        cy.get('#orderLastName').type("ramos")  
+        cy.get('#orderFirstName').should('not.have.value','#@$')
+    })
+
+    it('FN', ()=> {
+  
+        cy.get('#orderFirstName').type("")
+        cy.get('#orderLastName').type("ramos") 
+        cy.get('#orderFirstName').should('not.have.value','') 
+    })
+
+    it('LN', ()=> {
+  
+        cy.get('#orderFirstName').type("samir")
+        cy.get('#orderLastName').type("ramos") 
+        cy.get('#orderLastName').should('have.value','ramos') 
+    })
+
+    it('LN', ()=> {
+  
+        cy.get('#orderFirstName').type("samir")
+        cy.get('#orderLastName').type("123") 
+        cy.get('#orderLastName').should('have.value','123') 
+    })
+
+    it('LN', ()=> {
+  
+        cy.get('#orderFirstName').type("samir")
+        cy.get('#orderLastName').type("#@$") 
+        cy.get('#orderLastName').should('not.have.value','#@$') 
+    })
+
+    it('LN', ()=> {
+  
+        cy.get('#orderFirstName').type("samir")
+        cy.get('#orderLastName').type("") 
+        cy.get('#orderLastName').should('not.have.value','') 
+    })
+
 
 })

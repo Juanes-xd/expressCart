@@ -29,10 +29,10 @@ it('test id UE', ()=> {
 it('test id UE', ()=> {
 
     cy.get('#usersName').type('samir')
-    cy.get('#userEmail').type('samir@gmail5')
+    cy.get('#userEmail').type('samir.com')
     cy.get('#userPassword').type('123456')
     cy.get('#userNewForm > :nth-child(4) > .form-control').type('123456')
-    cy.get('#userEmail').should('include.value','.com')
+    cy.get('#userEmail').should('include.value','.@')
     cy.get('#btnUserAdd').click()
        
 })
@@ -40,10 +40,10 @@ it('test id UE', ()=> {
 it('test id UE5', ()=> {
 
     cy.get('#usersName').type('samir')
-    cy.get('#userEmail').type('samirgmail.com')
+    cy.get('#userEmail').type('samir@')
     cy.get('#userPassword').type('123456')
     cy.get('#userNewForm > :nth-child(4) > .form-control').type('123456')
-    cy.get('#userEmail').should('include.value','@')
+    cy.get('#userEmail').should('include.value','com')
     cy.get('#btnUserAdd').click()
        
 })
